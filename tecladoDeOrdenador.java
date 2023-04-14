@@ -5,19 +5,19 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class tecladoDeOrdenador
+public class TecladoDeOrdenador
 {
     //Atributos de la clase
     private String marca;
     private int numTeclas;
-    private boolean RGB;
+    private boolean rgb;
     /**
      * Constructor de la clase tecladoDeOrdenador
      */
-    public tecladoDeOrdenador (String marcas, int numT){
+    public TecladoDeOrdenador (String marcas, int numT){
         marca = marcas;
         numTeclas = numT;
-        RGB = false;
+        rgb = false;
     }
     
     /**
@@ -37,8 +37,8 @@ public class tecladoDeOrdenador
     /**
      * Metodo getter RGB
      */
-    public boolean getRGB(){
-        return RGB;
+    public boolean getRgb(){
+        return rgb;
     }
     
     /**
@@ -52,28 +52,44 @@ public class tecladoDeOrdenador
      * Metodo setter numTeclas
      */
     public void setNumTeclas(int teclas){
-        this.numTeclas = teclas;
+        numTeclas = teclas;
     }
     
     /**
      * Metodo setter RGB
      */
-    public void setRGB(){
-        this.RGB = RGB;
+    public void setRgb(){
+        if(rgb == false){
+            rgb = true;
+        }
+        else{
+            rgb = false;
+        }
     }
     
     /**
      * Metodo imprimir en pantalla
      */
     public void imprimirDetalles(){
-        System.out.println("Marca: " + marca + " | " + "Número de teclas: " + numTeclas + " | " + "¿Tiene RGB?: " + RGB);
+        if(rgb == true){
+            System.out.println("Marca: " + marca + " | " + "Número de teclas: " + numTeclas + " | " + "¿Tiene RGB?: Si");
+        }
+        else{
+            System.out.println("Marca: " + marca + " | " + "Número de teclas: " + numTeclas + " | " + "¿Tiene RGB?: No" );
+        }
     }
     
     /**
      * Metodo que nos devuelve un String
      */
     public String getDetalles(){
-        String detalles = "Marca: " + marca + " | " + "Número de teclas: " + numTeclas + " | " + "¿Tiene RGB?: " + RGB;
+        String detalles = "Marca: " + marca + " | " + "Número de teclas: " + numTeclas;
+        if(rgb == true){
+            detalles = detalles + " | " + "¿Tiene RGB?: Si";
+        }
+        else{
+            detalles = detalles + " | " + "¿Tiene RGB?: No";
+        }
         return detalles;
     }
 }
